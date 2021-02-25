@@ -46,3 +46,12 @@ while (programmFinish == 0){
     }
 }
 
+/*
+Хотелось бы понять, что здесь следует улучшить/исправить и почему, в целом все функционирует
+Так же хотелось бы и здесь разобраться с Warnings:
+l14: Comparison gameContinue == 0 may cause unexpected type coercion
+l19: return is unnecessary as the last statement in a function with no return value
+l37: Comparison programmFinish == 0 may cause unexpected type coercion
+l44: Comparison prompt('Повторим игру? Введите y для повторения', '')!='y' may cause unexpected type coercion
+l6: Variable userNumber implicitly declared
+*/
