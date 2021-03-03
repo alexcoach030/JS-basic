@@ -1,10 +1,17 @@
+function addBasket(){
+    let bask = document.createElement('div');
+    bask.className = 'basket-cargo'
+    bask.innerText = `Корзина пуста`;
+    shop.appendChild(bask);
+}
+
 function price (){
     for (let i = 0; i<basket.length; i++){
         let a = basket[i].id;
         sum += products[a].price*basket[i].amount;
     }
+    return sum;
 }
-
 
 function addToBasket(){
     while (true){
@@ -18,21 +25,20 @@ function addToBasket(){
             prod.id = id;
             prod.amount = amount;
             basket.push(prod);
-                let bask = document.createElement('div');
-                bask.className = 'basket-cargo'
-                shop.appendChild(bask);
-                price();
-                let quantity = document.createElement('span');
-                quantity = amount;
-                let summary = document.createElement('span');
-                summary = sum;
-                bask.innerText = `В корзине ${quantity} товаров на сумму ${summary}`;
-                quantity = amount;
-                summary = sum;
-
-
         }
     }
+}
+
+function changeBasket(){
+    if (count > 0){
+        let newBasket = document.querySelector('.shop');
+        let newBasketCargo = document.createElement('div');
+        newBasketCargo.className = 'basket-cargo'
+        summary = price();
+        quantity = count;
+        newBasketCargo.innerText = `В корзине ${quantity} товаров на сумму ${summary}`;
+        newBasket.replaceChild(newBasketCargo, shop.children[0]);
+    }else return;
 }
 
 let products = {
@@ -54,8 +60,14 @@ let products = {
     }
 }
 
+addBasket();
 let basket = [];
 let sum = 0;
-
-
+let count = 0;
 basket = addToBasket();
+for (let i = 0; i< basket.length; i++){
+    count += basket[i].amount;
+}
+changeBasket();
+
+
