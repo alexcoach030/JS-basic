@@ -1,5 +1,5 @@
 function getCatalog(){
-    for (i = 1; i<=4; i++){
+    for (let i = 1; i<=4; i++){
         let product = document.createElement('div');
         product.className = 'product';
         product.innerText = `${products[i].name}`;
@@ -51,11 +51,11 @@ function changeBasket(){
         let newBasket = document.querySelector('.shop');
         let newBasketCargo = document.createElement('div');
         newBasketCargo.className = 'basket-cargo'
-        summary = price();
-        quantity = count;
+        let summary = price();
+        let quantity = count;
         newBasketCargo.innerText = `В корзине ${quantity} товаров на сумму ${summary}`;
         newBasket.replaceChild(newBasketCargo, shop.children[0]);
-    }else return;
+    }
 }
 
 let products = {
