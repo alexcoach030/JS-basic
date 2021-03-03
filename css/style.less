@@ -1,0 +1,99 @@
+@cell: 60px;
+
+*{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.container{
+  margin: 0 auto;
+}
+
+.content{
+  margin: 0 auto;
+  display: flex;
+  width: 545px;
+}
+
+.numb{
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+}
+
+
+.numb-cell{
+  height: @cell;
+  font-size: 22px;
+  text-align: center;
+  line-height: @cell;
+  margin: 0 10px;
+}
+
+.chessplate{
+  display: flex;
+  width: @cell*8px;
+  flex-wrap: wrap;
+}
+
+.cell{
+  width: @cell;
+  height: @cell;
+  outline: 1px solid black;
+  background-color: yellow;
+  text-align: center;
+}
+
+.stroke{
+  width: @cell;
+  font-size: 22px;
+  text-align: center;
+}
+
+.black{
+  .cell;
+  background-color: brown;
+}
+
+.fas {
+  font-size: 36px;
+  line-height: @cell!important;
+}
+
+.white {
+  color: white!important;
+}
+
+//Для корзины
+.shop{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  /*margin-top: 500px;*/
+}
+.basket-cargo{
+  width: auto;
+  height: 100%;
+  padding: 10px;
+  background-color: gray;
+  outline: 1px solid black;
+  margin: 0 auto;
+  font-size: 22px;
+}
+
+.catalog{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.product{
+  width: 20%;
+  height: 50px;
+  outline: 1px solid black;
+  line-height: 50px;
+  font-size: 25px;
+  background-color: aqua;
+}
