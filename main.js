@@ -1,3 +1,11 @@
+function basketInitiation(){
+    basket = addToBasket();
+    for (let i = 0; i< basket.length; i++){
+        count += basket[i].amount;
+    }
+    changeBasket();
+}
+
 function addBasket(){
     let bask = document.createElement('div');
     bask.className = 'basket-cargo'
@@ -64,10 +72,7 @@ addBasket();
 let basket = [];
 let sum = 0;
 let count = 0;
-basket = addToBasket();
-for (let i = 0; i< basket.length; i++){
-    count += basket[i].amount;
-}
-changeBasket();
+window.onload = basketInitiation;
+
 
 
