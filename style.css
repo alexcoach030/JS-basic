@@ -1,0 +1,12 @@
+button {
+  background-color: gray;
+  outline: 2px solid black;
+}
+#big_picture {
+  display: flex;
+}
+.content {
+  display: flex;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=style.css.map */
