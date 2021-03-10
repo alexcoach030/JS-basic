@@ -1,0 +1,56 @@
+button {
+  background-color: gray;
+  outline: 2px solid black;
+}
+#big_picture {
+  display: flex;
+}
+.content_picture {
+  display: flex;
+  margin-bottom: 30px;
+}
+.content {
+  display: flex;
+  margin-bottom: 20px;
+}
+.content h2 {
+  text-align: center;
+}
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.prod {
+  width: 150px;
+  height: 200px;
+  font-size: 22px;
+  text-align: center;
+  background-color: aqua;
+  outline: 1px solid black;
+}
+.catalog {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.basket {
+  background-color: aquamarine;
+  outline: 2px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.basket p {
+  margin: 0!important;
+  padding: 0!important;
+  font-size: 22px;
+}
+.basket p span {
+  color: red;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+}
+/*# sourceMappingURL=style.css.map */
