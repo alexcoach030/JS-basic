@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!img) return;
         let gallery = document.getElementById('gallery');
         for (let i = 1; i <= gallery.childNodes.length; i++) {
-            if (img == `img${i}`) {
+            if (img === `img${i}`) {
                 let bigImg = document.createElement('img');
                 bigImg.src = `img/big/img${i}.jpeg`;
                 bigImg.dataset.num = i;
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let action = event.target.dataset.name;
         if (action !== 'prev') return;
         let img = big_picture.querySelector('img');
-        if (img.dataset.num<2) return;
+        if (img.dataset.num<2) return;//чтобы не выйти за пределы количества изображений
         let prevImg = document.createElement('img');
         prevImg.src = `img/big/img${img.dataset.num-1}.jpeg`;
         prevImg.dataset.num = img.dataset.num-1;
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let action = event.target.dataset.name;
         if (action!== 'next') return;
         let img = big_picture.querySelector('img');
-        if (img.dataset.num>2) return;
+        if (img.dataset.num>2) return;//проверка на то, чтобы не выйти за предел количества изображений
         let nextImg = document.createElement('img');
         nextImg.src = `img/big/img${++img.dataset.num}.jpeg`;
         nextImg.dataset.num = img.dataset.num;
