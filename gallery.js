@@ -9,12 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 let bigImg = document.createElement('img');
                 bigImg.src = `img/big/img${i}.jpeg`;
                 bigImg.dataset.num = i;
-                let query = big_picture.querySelector('img');
-                if (query == null) {
-                    big_picture.append(bigImg)
-                } else {
-                    query.replaceWith(bigImg);
+                bigImg.onload = function (){
+                    let query = big_picture.querySelector('img');
+                    if (query == null) {
+                        big_picture.append(bigImg)
+                    } else {
+                        query.replaceWith(bigImg);
+                    }
                 }
+
                 prevButton.hidden = false;
                 nextButton.hidden = false;
             }
@@ -29,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let prevImg = document.createElement('img');
         prevImg.src = `img/big/img${img.dataset.num-1}.jpeg`;
         prevImg.dataset.num = img.dataset.num-1;
-        img.replaceWith(prevImg);
+        prevImg.onload = () => img.replaceWith(prevImg);
     }
 
     function nextImg(event){
@@ -40,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let nextImg = document.createElement('img');
         nextImg.src = `img/big/img${++img.dataset.num}.jpeg`;
         nextImg.dataset.num = img.dataset.num;
-        img.replaceWith(nextImg);
+        nextImg.onload = () => img.replaceWith(nextImg);
     }
 
 
