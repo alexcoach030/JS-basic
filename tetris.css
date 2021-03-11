@@ -1,7 +1,15 @@
-#score, #lines {
+#score, #lines, #figures, #setting {
     margin-top: 20px;
     margin-left: 60px;
     font-size: 40px;
+}
+
+.green{
+    background-color: green;
+}
+
+button{
+    font-size: 22px;
 }
 
 #board {
@@ -50,6 +58,10 @@
     background-color: orange;
 }
 
+.uFigure {
+    background-color: black;
+}
+
 .tFigure {
     background-color: darkblue;
 }
@@ -60,4 +72,8 @@
 
 .iFigure {
     background-color: darkgreen;
+}
+
+.yFigure {
+    background-color: crimson;
 }

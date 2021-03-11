@@ -38,6 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
             cells: [1, BOARDWIDTH+1, BOARDWIDTH*2+1, BOARDWIDTH*3+1],
             width: 4,
             color: 'iFigure',
+        },
+        {
+            cells: [0, 1, BOARDWIDTH, BOARDWIDTH+1, BOARDWIDTH*2, BOARDWIDTH*2+1, BOARDWIDTH*3, BOARDWIDTH*3+1],
+            width: 4,
+            color: 'uFigure',
+        },
+        {
+            cells: [1, 2, BOARDWIDTH, BOARDWIDTH+1, BOARDWIDTH+2, BOARDWIDTH+3],
+            width: 4,
+            color: 'yFigure',
         }
     ]
 
@@ -65,9 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Вывод текстовых полей с состоянием игры
     var scoreElement = document.getElementById('score');
     var linesElement = document.getElementById('lines');
+    let figuresElement = document.getElementById('figures');
     function renderCounters() {
         scoreElement.innerHTML = 'Счет игры: '+gameBoard.score;
         linesElement.innerHTML = 'Собрано линий: '+gameBoard.finishedLines;
+        figuresElement.innerHTML = `Использовано ${gameBoard.figures} фигур`;
     }
 
     // Функция завершения игры
@@ -185,8 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameBoard.score += Math.pow(2, fullLines.length-1)*10;
             }
             gameBoard.finishedLines += fullLines.length;
+            gameBoard.figures++;
             renderCounters();
-            gameBoard.stepDelay = Math.max(100, 1000-10*gameBoard.finishedLines);
             setNewFigure();
             if (!canMove(gameBoard.currentPosition)) {
                 gameOver(false);
@@ -283,11 +295,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         gameBoard.finishedLines = 0;
         gameBoard.score = 0;
+        gameBoard.figures = 0;
         gameBoard.stepDelay = 1000;
         setNewFigure();
+
         // Выводим счетчики
         renderCounters();
     }
+    function setting(event){
+        let name = event.target.dataset.name;
+        if (!name) return;
+        let set = document.getElementById('setting');
+        for (elem of set.childNodes){
+            elem.className = '';
+        }
+        event.target.className = 'green';
+        if (name === 'junior'){
+            gameBoard.stepDelay = 1000;
+        } else if (name === 'middle'){
+            gameBoard.stepDelay = 300;
+        } else if (name === 'senior'){
+            gameBoard.stepDelay = 100;
+        }
+    }
+
+    document.addEventListener('click', setting);
 
     initBoard();
     pauseHandler();
