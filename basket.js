@@ -30,11 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function price() {
         sum = 0;
-        for (let i = 0; i < basket.length; i++) {
-            let a = basket[i].id;
-            sum += products[a].price * basket[i].amount;
-        }
-        return sum;
+        function getPrice (){
+            for (let i = 0; i < basket.length; i++) {
+                let a = basket[i].id;
+                sum += products[a].price * basket[i].amount;
+            } return sum
+        }getPrice();
     }
 
     function getBasket() {
